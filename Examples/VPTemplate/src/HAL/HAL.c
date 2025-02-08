@@ -1,17 +1,40 @@
-/**
+/******************************************************************************
  * @file HAL.c
- * @author Andreas Schmidt (a.v.schmidt81@gmail.com)
+ *
+ * @author Andreas Schmidt (a.v.schmidt81@googlemail.com
+ * @date   08.02.2025
+ *
+ * @copyright Copyright (c) 2025
+ *
+ ******************************************************************************
+ *
  * @brief Implementation of general HAL functions incl. glue code
  * for the STM32Cube HAL
  *
- * @version 0.1
- * @date 2023-02-14
  *
- * @copyright Copyright (c) 2023
- *
- */
+ *****************************************************************************/
 
+
+/***** INCLUDES **************************************************************/
 #include "stm32g4xx_hal.h"
+
+/***** PRIVATE CONSTANTS *****************************************************/
+
+
+/***** PRIVATE MACROS ********************************************************/
+
+
+/***** PRIVATE TYPES *********************************************************/
+
+
+/***** PRIVATE PROTOTYPES ****************************************************/
+
+
+/***** PRIVATE VARIABLES *****************************************************/
+
+
+/***** PUBLIC FUNCTIONS ******************************************************/
+
 
 /**
   * @brief Initializes the Global MSP.
@@ -30,3 +53,5 @@ void HAL_MspInit(void)
     */
     HAL_PWREx_DisableUCPDDeadBattery();
 }
+
+/***** PRIVATE FUNCTIONS *****************************************************/

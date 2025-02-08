@@ -1,16 +1,42 @@
-/**
+/******************************************************************************
  * @file FaultHandler.c
- * @author Andreas Schmidt (a.v.schmidt81@gmail.com)
- * @brief Default Fault-Handler for VP Project
- * Usually those handler only contain an endless loop
- * to keep the controller stuck in the fault handler
  *
- * @version 0.1
- * @date 2023-02-13
+ * @author Andreas Schmidt (a.v.schmidt81@googlemail.com
+ * @date   08.02.2025
  *
- * @copyright Copyright (c) 2023
+ * @copyright Copyright (c) 2025
  *
- */
+ ******************************************************************************
+ *
+ * @brief efault Fault-Handler for VP Project
+ *
+ * @details Usually those handler only contain an endless loop to keep the
+ * controller stuck in the fault handler
+ *
+ *
+ *****************************************************************************/
+
+
+/***** INCLUDES **************************************************************/
+
+
+/***** PRIVATE CONSTANTS *****************************************************/
+
+
+/***** PRIVATE MACROS ********************************************************/
+
+
+/***** PRIVATE TYPES *********************************************************/
+
+
+/***** PRIVATE PROTOTYPES ****************************************************/
+
+
+/***** PRIVATE VARIABLES *****************************************************/
+
+
+/***** PUBLIC FUNCTIONS ******************************************************/
+
 
 /**
  * @brief Default-Implementation of the HardFault Handler
@@ -79,3 +105,5 @@ void UsageFault_Handler(void)
 {
   while (1) {}
 }
+
+/***** PRIVATE FUNCTIONS *****************************************************/

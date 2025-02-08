@@ -1,19 +1,43 @@
-/**
+/******************************************************************************
  * @file LEDModule.c
- * @author Andreas Schmidt (a.v.schmidt81@gmail.com)
+ *
+ * @author Andreas Schmidt (a.v.schmidt81@googlemail.com
+ * @date   08.02.2025
+ *
+ * @copyright Copyright (c) 2025
+ *
+ ******************************************************************************
+ *
  * @brief Implementation of the LED module
  *
- * @version 0.1
- * @date 2023-02-13
  *
- * @copyright Copyright (c) 2023
- *
- */
+ *****************************************************************************/
 
+
+/***** INCLUDES **************************************************************/
 #include "stm32g4xx_hal.h"
 
 #include "HardwareConfig.h"
 #include "LEDModule.h"
+
+
+/***** PRIVATE CONSTANTS *****************************************************/
+
+
+/***** PRIVATE MACROS ********************************************************/
+
+
+/***** PRIVATE TYPES *********************************************************/
+
+
+/***** PRIVATE PROTOTYPES ****************************************************/
+
+
+/***** PRIVATE VARIABLES *****************************************************/
+
+
+/***** PUBLIC FUNCTIONS ******************************************************/
+
 
 int32_t ledInitialize()
 {
@@ -118,3 +142,5 @@ void ledSetLED(LED_t led, LED_Status_t ledStatus)
             break;
     }
 }
+
+/***** PRIVATE FUNCTIONS *****************************************************/

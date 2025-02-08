@@ -1,25 +1,43 @@
-/**
+/******************************************************************************
  * @file UARTModule.c
- * @author Andreas Schmidt (a.v.schmidt81@gmail.com)
+ *
+ * @author Andreas Schmidt (a.v.schmidt81@googlemail.com
+ * @date   08.02.2025
+ *
+ * @copyright Copyright (c) 2025
+ *
+ ******************************************************************************
+ *
  * @brief Implementation of the UART Module
  *
- * @version 0.1
- * @date 2023-02-16
  *
- * @copyright Copyright (c) 2023
- *
- */
+ *****************************************************************************/
 
+
+/***** INCLUDES **************************************************************/
 #include "stm32g4xx_hal.h"
 
 #include "System.h"
 #include "HardwareConfig.h"
 #include "UARTModule.h"
 
-/*
- * Private Global Variables
-*/
+/***** PRIVATE CONSTANTS *****************************************************/
+
+
+/***** PRIVATE MACROS ********************************************************/
+
+
+/***** PRIVATE TYPES *********************************************************/
+
+
+/***** PRIVATE PROTOTYPES ****************************************************/
+
+
+/***** PRIVATE VARIABLES *****************************************************/
 static UART_HandleTypeDef gUARTHandle;     //!< Global handle for UART 2
+
+/***** PUBLIC FUNCTIONS ******************************************************/
+
 
 int32_t uartInitialize(uint32_t baudrate)
 {
@@ -30,6 +48,7 @@ int32_t uartInitialize(uint32_t baudrate)
 
     PeriphClkInit.PeriphClockSelection = RCC_PERIPHCLK_LPUART1;
     PeriphClkInit.Lpuart1ClockSelection = RCC_LPUART1CLKSOURCE_PCLK1;
+
     if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInit) != HAL_OK)
     {
         Error_Handler();
@@ -39,6 +58,7 @@ int32_t uartInitialize(uint32_t baudrate)
     __HAL_RCC_LPUART1_CLK_ENABLE();
 
     __HAL_RCC_GPIOA_CLK_ENABLE();
+
     /**LPUART1 GPIO Configuration
      PA2     ------> LPUART1_TX
      PA3     ------> LPUART1_RX
@@ -64,20 +84,22 @@ int32_t uartInitialize(uint32_t baudrate)
     gUARTHandle.Init.OneBitSampling = UART_ONE_BIT_SAMPLE_DISABLE;
     gUARTHandle.Init.ClockPrescaler = UART_PRESCALER_DIV1;
     gUARTHandle.AdvancedInit.AdvFeatureInit = UART_ADVFEATURE_NO_INIT;
+
     if (HAL_UART_Init(&gUARTHandle) != HAL_OK)
     {
         Error_Handler();
     }
-    if (HAL_UARTEx_SetTxFifoThreshold(&gUARTHandle, UART_TXFIFO_THRESHOLD_1_8)
-            != HAL_OK)
+
+    if (HAL_UARTEx_SetTxFifoThreshold(&gUARTHandle, UART_TXFIFO_THRESHOLD_1_8) != HAL_OK)
     {
         Error_Handler();
     }
-    if (HAL_UARTEx_SetRxFifoThreshold(&gUARTHandle, UART_RXFIFO_THRESHOLD_1_8)
-            != HAL_OK)
+
+    if (HAL_UARTEx_SetRxFifoThreshold(&gUARTHandle, UART_RXFIFO_THRESHOLD_1_8) != HAL_OK)
     {
         Error_Handler();
     }
+
     if (HAL_UARTEx_DisableFifoMode(&gUARTHandle) != HAL_OK)
     {
         Error_Handler();
@@ -99,3 +121,5 @@ int32_t uartSendData(uint8_t* pDataBuffer, int32_t bufferLength)
 
     return result;
 }
+
+/***** PRIVATE FUNCTIONS *****************************************************/

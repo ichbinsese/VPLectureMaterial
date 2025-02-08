@@ -1,20 +1,42 @@
-/**
+/******************************************************************************
  * @file ButtonModule.c
- * @author Andreas Schmidt (a.v.schmidt81@gmail.com)
+ *
+ * @author Andreas Schmidt (a.v.schmidt81@googlemail.com
+ * @date   08.02.2025
+ *
+ * @copyright Copyright (c) 2025
+ *
+ ******************************************************************************
+ *
  * @brief Implementation of the Button Module
  *
- * @version 0.1
- * @date 2023-02-23
  *
- * @copyright Copyright (c) 2023
- *
- */
+ *****************************************************************************/
 
+
+/***** INCLUDES **************************************************************/
 #include "stm32g4xx_hal.h"
 
 #include "HardwareConfig.h"
 #include "ButtonModule.h"
 
+
+/***** PRIVATE CONSTANTS *****************************************************/
+
+
+/***** PRIVATE MACROS ********************************************************/
+
+
+/***** PRIVATE TYPES *********************************************************/
+
+
+/***** PRIVATE PROTOTYPES ****************************************************/
+
+
+/***** PRIVATE VARIABLES *****************************************************/
+
+
+/***** PUBLIC FUNCTIONS ******************************************************/
 
 int32_t buttonInitialize()
 {
@@ -92,3 +114,6 @@ Button_Status_t buttonGetButtonStatus(Button_t button)
 
     return buttonStatus;
 }
+
+/***** PRIVATE FUNCTIONS *****************************************************/
+

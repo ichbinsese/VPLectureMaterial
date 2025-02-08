@@ -1,24 +1,37 @@
-/**
+/******************************************************************************
  * @file TimerModule.h
- * @author Andreas Schmidt (a.v.schmidt81@gmail.com)
+ *
+ * @author Andreas Schmidt (a.v.schmidt81@googlemail.com
+ * @date   08.02.2025
+ *
+ * @copyright Copyright (c) 2025
+ *
+ ******************************************************************************
+ *
  * @brief Header file for the Timer Module
  *
- * @version 0.1
- * @date 2023-02-21
  *
- * @copyright Copyright (c) 2023
- *
- */
+ *****************************************************************************/
+
+
 #ifndef _TIMER_MODULE_H_
 #define _TIMER_MODULE_H_
 
+/***** INCLUDES **************************************************************/
 #include <stdint.h>
 
-/*
- * Public Defines
-*/
+/***** CONSTANTS *************************************************************/
+
+
+/***** MACROS ****************************************************************/
 #define TIMER_ERR_OK                  0         //!< No error occured
 #define TIMER_ERR_INIT_FAILURE        -1        //!< Error during timer initialization
+
+
+/***** TYPES *****************************************************************/
+
+
+/***** PROTOTYPES ************************************************************/
 
 /**
  * @brief Initializes the Timer Module

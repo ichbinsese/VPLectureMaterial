@@ -1,20 +1,33 @@
-/**
+/******************************************************************************
  * @file LogOutput.h
- * @author Andreas Schmidt (a.v.schmidt81@gmail.com)
+ *
+ * @author Andreas Schmidt (a.v.schmidt81@googlemail.com
+ * @date   08.02.2025
+ *
+ * @copyright Copyright (c) 2025
+ *
+ ******************************************************************************
+ *
  * @brief Header file for debug and log outputs
  *
- * @version 0.1
- * @date 2023-02-26
  *
- * @copyright Copyright (c) 2023
- *
- */
+ *****************************************************************************/
 #ifndef _LOG_OUTPUT_H_
 #define _LOG_OUTPUT_H_
 
-/*
- * Public Interface
-*/
+/***** INCLUDES **************************************************************/
+
+
+/***** CONSTANTS *************************************************************/
+
+
+/***** MACROS ****************************************************************/
+
+
+/***** TYPES *****************************************************************/
+
+
+/***** PROTOTYPES ************************************************************/
 
 /**
  * @brief Outputs a simple string message to the UART output
@@ -34,26 +47,5 @@ void outputLog(const char* msg);
  */
 int outputLogf(const char* format, ...);
 
-/**
- * @brief Outputs a simple string message to the UART output
- *
- * @remark Does not send anything to UART if DEBUG_BUILD is not defined
- *
- * @param msg Zero terminated string to output
- */
-void outputDebugLog(const char* msg);
-
-/**
- * @brief Outputs a formatted string to the UART output
- *
- * @remark Does not send anything to UART if DEBUG_BUILD is not defined
- *
- *
- * @param format    Format string accroding printf specification
- * @param ...       Variable parameter
- *
- * @return Returns number of chars written to UART
- */
-int outputDebugLogf(const char* format, ...);
 
 #endif

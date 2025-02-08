@@ -1,22 +1,40 @@
-/**
+/******************************************************************************
  * @file StateTable.c
- * @author Andreas Schmidt (a.v.schmidt81@gmail.com)
+ *
+ * @author Andreas Schmidt (a.v.schmidt81@googlemail.com
+ * @date   08.02.2025
+ *
+ * @copyright Copyright (c) 2025
+ *
+ ******************************************************************************
+ *
  * @brief Implementation of a generic state table
  *
- * @version 0.1
- * @date 2023-02-24
  *
- * @copyright Copyright (c) 2023
- *
- */
+ *****************************************************************************/
 
+/***** INCLUDES **************************************************************/
 #include "StateTable.h"
 
 
-/*
- * Private Functions
-*/
+/***** PRIVATE CONSTANTS *****************************************************/
+
+
+/***** PRIVATE MACROS ********************************************************/
+
+
+/***** PRIVATE TYPES *********************************************************/
+
+
+/***** PRIVATE PROTOTYPES ****************************************************/
 static bool stateTableFindState(StateTable_t* pStateTable, int32_t stateID, State_t** pFoundState);
+
+
+/***** PRIVATE VARIABLES *****************************************************/
+
+
+/***** PUBLIC FUNCTIONS ******************************************************/
+
 
 int32_t stateTableInitialize(StateTable_t* pStateTable, StateTableEntry_t* pTableEntries, int32_t entryCount, int32_t initStateID)
 {
@@ -156,6 +174,9 @@ int32_t stateTableSendEvent(StateTable_t* pStateTable, int32_t event)
 
     return STATETBL_ERR_OK;
 }
+
+
+/***** PRIVATE FUNCTIONS *****************************************************/
 
 /**
  * @brief Searches for a state in the state list with the provided state ID

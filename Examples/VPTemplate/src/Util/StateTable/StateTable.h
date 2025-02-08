@@ -1,23 +1,29 @@
-/**
+/******************************************************************************
  * @file StateTable.h
- * @author Andreas Schmidt (a.v.schmidt81@gmail.com)
- * @brief Header file for a generic state table implementation
  *
- * @version 0.1
- * @date 2023-02-24
+ * @author Andreas Schmidt (a.v.schmidt81@googlemail.com
+ * @date   08.02.2025
  *
- * @copyright Copyright (c) 2023
+ * @copyright Copyright (c) 2025
  *
- */
+ ******************************************************************************
+ *
+ * @brief file for a generic state table implementation
+ *
+ *
+ *****************************************************************************/
 #ifndef _STATE_TABLE_H_
 #define _STATE_TABLE_H_
 
+/***** INCLUDES **************************************************************/
 #include <stdint.h>
 #include <stdbool.h>
 
-/*
- * Public Defines
-*/
+
+/***** CONSTANTS *************************************************************/
+
+
+/***** MACROS ****************************************************************/
 #define STATETBL_ERR_OK                     0       //!< No error occured
 #define STATETBL_ERR_INVALID_PTR            -1      //!< Invalid pointer (null pointer)
 #define STATETBL_ERR_INVALID_STATE_ID       -2      //!< Invalid state ID found
@@ -31,10 +37,8 @@
 
 #define STT_NONE_EVENT                      0       //!< ID for "No Event"
 
-/*
- * Public Types
-*/
 
+/***** TYPES *****************************************************************/
 // Forward Declaration for StateEntry
 typedef struct _State State_t;
 typedef struct _StateTableEntry StateTableEntry_t;
@@ -58,12 +62,13 @@ typedef bool (*TransitionGuardFunction)(StateTableEntry_t* pEntry, int32_t event
  */
 typedef struct _State
 {
+    // Static fields used for state configuration
     int32_t stateID;                        //!< ID of the state
     StateFunction pOnEntry;                 //!< Function pointer for the on entry function of the state
     StateFunction pOnState;                 //!< Function Pointer for the state function
     StateFunction pOnExit;                  //!< Function pointer for the on exit function of the state
 
-    // Dynamic fields
+    // Dynamic fields used during runtime
     bool onEntryCalled;                     //!< Flag to indicate whethter the onEntry function has been called
 } State_t;
 
@@ -73,11 +78,14 @@ typedef struct _State
  */
 typedef struct _StateTableEntry
 {
+    // Static fileds used for state table configuration
     int32_t stateIDFrom;                    //!< ID of the state the transition starts from
     int32_t stateIDTo;                      //!< ID of the state the transition will go to
     int32_t eventID;                        //!< Event which triggers the transition
 
     TransitionGuardFunction pGuard;         //!< Function pointer for a transition guard function
+
+    // Dynamic files used during runtime
     State_t* pFromStateRef;                 //!< Pointer to the "from state object"
     State_t* pToStateRef;                   //!< Poitner to the "to state object"
 } StateTableEntry_t;
@@ -104,9 +112,7 @@ typedef struct _StateTable
 } StateTable_t;
 
 
-/*
- * Public Interface
-*/
+/***** PROTOTYPES ************************************************************/
 
 /**
  * @brief Initializes the state table instance with the table entries and needed configuration parameter

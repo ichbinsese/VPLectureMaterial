@@ -1,24 +1,32 @@
-/**
+/******************************************************************************
  * @file Scheduler.h
- * @author Andreas Schmidt (a.v.schmidt81@gmail.com)
+ *
+ * @author Andreas Schmidt (a.v.schmidt81@googlemail.com
+ * @date   08.02.2025
+ *
+ * @copyright Copyright (c) 2025
+ *
+ ******************************************************************************
+ *
  * @brief Header File for cooperative scheduler module
  *
- * @version 0.1
- * @date 2023-02-16
  *
- * @copyright Copyright (c) 2023
- *
- */
+ *****************************************************************************/
 #ifndef _SCHEDULER_H_
 #define _SCHEDULER_H_
 
+
+/***** INCLUDES **************************************************************/
 #include <stdint.h>
 
-/*
- * Public Defines
-*/
+/***** CONSTANTS *************************************************************/
+
+
+/***** MACROS ****************************************************************/
 #define SCHED_ERR_OK                0           //!< No error occured (Scheduler)
 #define SCHED_ERR_INVALID_PTR       -1          //!< Invalid pointer (Scheduler)
+
+/***** TYPES *****************************************************************/
 
 /**
  * @brief Function pointer for reading the current HAL Tick timer
@@ -60,6 +68,10 @@ typedef struct _Scheduler
     uint32_t halTick_1000ms;            //!< Timestamp for last execution of 1000ms task
     CyclicFunction pTask_1000ms;        //!< Function pointer to 1000ms cyclic task function
 } Scheduler;
+
+
+/***** PROTOTYPES ************************************************************/
+
 
 /**
  * @brief Initializes the Scheduler component

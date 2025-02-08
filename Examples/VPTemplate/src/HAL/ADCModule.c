@@ -1,28 +1,34 @@
-/**
+/******************************************************************************
  * @file ADCModule.c
- * @author Andreas Schmidt (a.v.schmidt81@gmail.com)
  *
- * @brief Implementation of the ADC Service Layer Module
- * this includes the initialization of the ADC and DMA peripherals
- * according the needs of the application
+ * @author Andreas Schmidt (a.v.schmidt81@googlemail.com
+ * @date   08.02.2025
  *
- * @version 0.1
- * @date 2023-02-14
+ * @copyright Copyright (c) 2025
  *
- * @copyright Copyright (c) 2023
+ ******************************************************************************
  *
- */
-#include <string.h>
+ * @brief Implementation of the ADC Service Layer Module this includes the
+ * initialization of the ADC and DMA peripherals according the needs of
+ * the application
+ *
+ *
+ *****************************************************************************/
 
+/***** INCLUDES **************************************************************/
 #include "stm32g4xx_hal.h"
 
 #include "System.h"
 #include "HardwareConfig.h"
 #include "ADCModule.h"
 
-/*
- * Private Defines
-*/
+#include <string.h>
+
+/***** PRIVATE CONSTANTS *****************************************************/
+static const int32_t MICROVOLTS_PER_DIGIT = 805;    //!< 805 µV / digit
+
+
+/***** PRIVATE MACROS ********************************************************/
 #define ADC_CHANNEL_COUNT       5                   //!< Total number of used ADC channels
 
 #define IDX_ADC_INPUT0          0                   //!< Array index for ADC channel 0 (Pot 1) in global ADC value array
@@ -31,27 +37,23 @@
 #define IDX_ADC_VBAT            3                   //!< Array index for ADC channel 3 (VBat) in global ADC value array
 #define IDX_ADC_VREF            4                   //!< Array index for ADC channel 4 (internal reference voltage) in global ADC value array
 
-/*
- * Private Module Variables
-*/
+
+/***** PRIVATE TYPES *********************************************************/
+
+
+/***** PRIVATE PROTOTYPES ****************************************************/
+
+static void adcInitializeDMA(void);
+
+
+/***** PRIVATE VARIABLES *****************************************************/
 static ADC_HandleTypeDef gADCHandle;                //!< Global handle for ADC peripheral
 static DMA_HandleTypeDef gDMA_ADC_Handle;           //!< Global handle for DMA peripheral used for ADC data transfer
 
 static uint32_t gADCValues[ADC_CHANNEL_COUNT];      //!< Global array for ADC values used by the DMA transfer
 
-/*
- * Private Module Functions
-*/
-static void adcInitializeDMA(void);
 
-/*
- * Public Constants
-*/
-static const int32_t MICROVOLTS_PER_DIGIT = 805;    //!< 805 µV / digit
-
-/*
- * Public Module Functions
-*/
+/***** PUBLIC FUNCTIONS ******************************************************/
 
 int32_t adcInitialize()
 {
@@ -259,6 +261,9 @@ int32_t adcReadChannel(ADC_Channel_t adcChannel)
     return adcMicroVoltValue;
 }
 
+
+
+/***** PRIVATE FUNCTIONS *****************************************************/
 
 /**
  * @brief Initializes the DMA peripheral (DMA1) for use with the ADC block

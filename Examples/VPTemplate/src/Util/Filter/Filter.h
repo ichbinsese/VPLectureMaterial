@@ -1,31 +1,34 @@
-/**
- * @file filter.h
- * @author Andreas Schmidt (a.v.schmidt81@gmail.com)
+/******************************************************************************
+ * @file Filter.h
+ *
+ * @author Andreas Schmidt (a.v.schmidt81@googlemail.com
+ * @date   08.02.2025
+ *
+ * @copyright Copyright (c) 2025
+ *
+ ******************************************************************************
+ *
  * @brief Header file for Filter library
  *
- * @version 0.1
- * @date 2023-02-23
  *
- * @copyright Copyright (c) 2023
- *
- */
-#ifndef _FILTER_API_H_
-#define _FILTER_API_H_
+ *****************************************************************************/
+#ifndef _FILTER_H_
+#define _FILTER_H_
 
+/***** INCLUDES **************************************************************/
 #include <stdbool.h>
 #include <stdint.h>
 
-/*
- * Public Defines
-*/
+/***** CONSTANTS *************************************************************/
+
+
+/***** MACROS ****************************************************************/
 #define FILTER_ERR_OK                   0       //!< No error occured
 #define FILTER_ERR_GENERAL              -1      //!< General error during filter processing
 #define FILTER_ERR_INVALID_PTR          -2      //!< Invalid pointer (Null Pointer)
 #define FILTER_ERR_INVALID_PARAM        -3      //!< Invalid parameter value
 
-/*
- * Public Types
-*/
+/***** TYPES *****************************************************************/
 
 /**
  * @brief Struct which represents a EMA filter
@@ -39,6 +42,10 @@ typedef struct _EMAFilterData
     int32_t scalingFactor;                      //!< Used scaling factor
 } EMAFilterData_t;
 
+
+/***** PROTOTYPES ************************************************************/
+
+
 /**
  * @brief Initialize an EMA filter with the provided parameter
  *
@@ -51,8 +58,24 @@ typedef struct _EMAFilterData
  */
 int32_t filterInitEMA(EMAFilterData_t* pEMA, int32_t scalingFactor, int32_t alpha, bool resetFilter);
 
+
+/**
+ * @brief Resets the EMA filter structure
+ *
+ * @param pEMA              Pointer to the EMA filter struct
+ *
+ * @return Return FILTER_ERR_OK is no error occured
+ */
 int32_t filterResetEMA(EMAFilterData_t* pEMA);
 
+/**
+ * @brief Performs the EMA filtering on the provided sensor value
+ *
+ * @param pEMA              Pointer to the EMA filter struct
+ * @param sensorValue       Value which should be filtered
+ *
+ * @return The filtered sensor value
+ */
 int32_t filterEMA(EMAFilterData_t* pEMA, int32_t sensorValue);
 
 #endif

@@ -1,21 +1,31 @@
-/**
+/******************************************************************************
  * @file ButtonModule.h
- * @author Andreas Schmidt (a.v.schmidt81@gmail.com)
+ *
+ * @author Andreas Schmidt (a.v.schmidt81@googlemail.com
+ * @date   08.02.2025
+ *
+ * @copyright Copyright (c) 2025
+ *
+ ******************************************************************************
+ *
  * @brief Header file for the Button Module
  *
- * @version 0.1
- * @date 2023-02-23
  *
- * @copyright Copyright (c) 2023
- *
- */
+ *****************************************************************************/
 #ifndef _BUTTON_MODULE_H_
 #define _BUTTON_MODULE_H_
 
-/*
- * Public Defines
-*/
+/***** INCLUDES **************************************************************/
+
+
+/***** CONSTANTS *************************************************************/
+
+
+/***** MACROS ****************************************************************/
 #define BUTTON_ERR_OK      0            //!< No error occured
+
+
+/***** TYPES *****************************************************************/
 
 /**
  * @brief Enumeration of available Buttons and their usage
@@ -23,9 +33,9 @@
  */
 typedef enum _Button_t
 {
-	BTN_B1,
-    BTN_SW1,                   		//!< Button used to activate/deactivate the system (SW1)
-    BTN_SW2                     	//!< Button used for race mode (SW2)
+    BTN_B1,
+    BTN_SW1,                        //!< Button used to activate/deactivate the system (SW1)
+    BTN_SW2                         //!< Button used for race mode (SW2)
 } Button_t;
 
 /**
@@ -37,6 +47,8 @@ typedef enum _Button_Status_t
     BUTTON_PRESSED,                     //!< Button is pressed
     BUTTON_RELEASED                     //!< Button is released
 } Button_Status_t;
+
+/***** PROTOTYPES ************************************************************/
 
 /**
  * @brief Initialize the GPIOs for the Button inputs

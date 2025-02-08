@@ -1,26 +1,45 @@
-/**
+/******************************************************************************
  * @file TimerModule.c
- * @author Andreas Schmidt (a.v.schmidt81@gmail.com)
+ *
+ * @author Andreas Schmidt (a.v.schmidt81@googlemail.com
+ * @date   08.02.2025
+ *
+ * @copyright Copyright (c) 2025
+ *
+ ******************************************************************************
+ *
  * @brief Implementation of the Timer Module to trigger ADC conversion
  * based on DMA
  *
- * @version 0.1
- * @date 2023-02-21
  *
- * @copyright Copyright (c) 2023
- *
- */
+ *****************************************************************************/
 
+
+/***** INCLUDES **************************************************************/
 #include "stm32g4xx_hal.h"
 
 #include "System.h"
 #include "HardwareConfig.h"
 #include "TimerModule.h"
 
-/*
- * Private Global Variables
-*/
+
+/***** PRIVATE CONSTANTS *****************************************************/
+
+
+/***** PRIVATE MACROS ********************************************************/
+
+
+/***** PRIVATE TYPES *********************************************************/
+
+
+/***** PRIVATE PROTOTYPES ****************************************************/
+
+
+/***** PRIVATE VARIABLES *****************************************************/
 static TIM_HandleTypeDef gTimer3Handle;         //! Global handle for Timer 3 (TIM3) peripheral
+
+
+/***** PUBLIC FUNCTIONS ******************************************************/
 
 int32_t timerInitialize()
 {
@@ -45,6 +64,7 @@ int32_t timerInitialize()
     }
 
     sClockSourceConfig.ClockSource = TIM_CLOCKSOURCE_INTERNAL;
+
     if (HAL_TIM_ConfigClockSource(&gTimer3Handle, &sClockSourceConfig) != HAL_OK)
     {
         return TIMER_ERR_INIT_FAILURE;
@@ -52,6 +72,7 @@ int32_t timerInitialize()
 
     sMasterConfig.MasterOutputTrigger = TIM_TRGO_UPDATE;
     sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
+
     if (HAL_TIMEx_MasterConfigSynchronization(&gTimer3Handle, &sMasterConfig) != HAL_OK)
     {
         return TIMER_ERR_INIT_FAILURE;
@@ -91,3 +112,6 @@ void TIM3_IRQHandler(void)
 {
     HAL_TIM_IRQHandler(&gTimer3Handle);
 }
+
+
+/***** PRIVATE FUNCTIONS *****************************************************/

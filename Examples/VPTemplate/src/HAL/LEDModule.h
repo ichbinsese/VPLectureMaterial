@@ -1,25 +1,33 @@
-/**
+/******************************************************************************
  * @file LEDModule.h
- * @author Andreas Schmidt (a.v.schmidt81@gmail.com)
+ *
+ * @author Andreas Schmidt (a.v.schmidt81@googlemail.com
+ * @date   08.02.2025
+ *
+ * @copyright Copyright (c) 2025
+ *
+ ******************************************************************************
+ *
  * @brief Header file for the LED module
  *
- * @version 0.1
- * @date 2023-02-13
  *
- * @copyright Copyright (c) 2023
- *
- */
+ *****************************************************************************/
 #ifndef _LED_MODULE_H_
 #define _LED_MODULE_H_
 
+/***** INCLUDES **************************************************************/
 #include "stm32g4xx_hal.h"
-
 #include <stdint.h>
 
-/*
- * Public Defines
-*/
+
+/***** CONSTANTS *************************************************************/
+
+
+/***** MACROS ****************************************************************/
 #define LED_ERR_OK      0               //!< No error occured
+
+
+/***** TYPES *****************************************************************/
 
 /**
  * @brief Enumeration of available LEDs and their usage
@@ -27,11 +35,11 @@
  */
 typedef enum _LED_t
 {
-    LED0,                    			//!< LED0 used for Mode indication
-    LED1,                   			//!< LED1
-    LED2,                     			//!< LED2
-	LED3,                  				//!< LED3 used for Motor indication
-    LED4                   				//!< LED4 used for Sensor Failure/OK
+    LED0,                               //!< LED0 used for Mode indication
+    LED1,                               //!< LED1
+    LED2,                               //!< LED2
+    LED3,                               //!< LED3 used for Motor indication
+    LED4                                //!< LED4 used for Sensor Failure/OK
 } LED_t;
 
 /**
@@ -43,6 +51,9 @@ typedef enum _LED_Status_t
     LED_ON  = GPIO_PIN_SET,             //!< Value to turn a LED on
     LED_OFF = GPIO_PIN_RESET            //!< Value to turn a LED off
 } LED_Status_t;
+
+
+/***** PROTOTYPES ************************************************************/
 
 /**
  * @brief Initialize the GPIOs for the LED outouts

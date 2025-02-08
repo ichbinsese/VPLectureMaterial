@@ -1,20 +1,34 @@
-/**
+/******************************************************************************
  * @file DisplayModule.c
- * @author Andreas Schmidt (a.v.schmidt81@gmail.com)
+ *
+ * @author Andreas Schmidt (a.v.schmidt81@googlemail.com
+ * @date   08.02.2025
+ *
+ * @copyright Copyright (c) 2025
+ *
+ ******************************************************************************
+ *
  * @brief Implementation of the 7-Segement display module
  *
- * @version 0.1
- * @date 2023-02-22
  *
- * @copyright Copyright (c) 2023
- *
- */
+ *****************************************************************************/
 
+
+/***** INCLUDES **************************************************************/
 #include "stm32g4xx_hal.h"
 
 #include "System.h"
 #include "HardwareConfig.h"
 #include "DisplayModule.h"
+
+
+/***** PRIVATE CONSTANTS *****************************************************/
+
+
+/***** PRIVATE MACROS ********************************************************/
+
+
+/***** PRIVATE TYPES *********************************************************/
 
 /**
  * @brief Internal type to represent the activation of the 7-segments
@@ -33,12 +47,18 @@ typedef struct _SegmentEncodingEntry
     unsigned int segG : 1;      //!< Bit for activate/deactivate segment G
 } SegmentEncodingEntry;
 
+
+/***** PRIVATE PROTOTYPES ****************************************************/
+
+
+/***** PRIVATE VARIABLES *****************************************************/
+
 /**
  * @brief Encoding table for the specific LED segments on a single 7-Segment
  * display
  *
  */
-static SegmentEncodingEntry gSegmentEncodingTable[] =
+static const SegmentEncodingEntry gSegmentEncodingTable[] =
 {
 //   a, b, c, d, e, f, g
     {1, 1, 1, 1, 1, 1, 0},  // 0
@@ -62,6 +82,9 @@ static SegmentEncodingEntry gSegmentEncodingTable[] =
     {0, 0, 1, 1, 1, 0, 1},  // o (DIGIT_LOWER_O)
     {0, 0, 0, 0, 0, 0, 0},  // Off (DIGIT_OFF)
 };
+
+/***** PUBLIC FUNCTIONS ******************************************************/
+
 
 int32_t displayInitialize()
 {
@@ -115,7 +138,7 @@ int32_t displayShowDigit(Display_t outputDisplay, int8_t digit)
 
         // If the Floor Display is used, we need to invert all bits
         // due to the differnce between common anode and common kathode
-        if (outputDisplay == FLOOR_DISPLAY)
+        if (outputDisplay == LEFT_DISPLAY)
         {
             entry.segA = !entry.segA;
             entry.segB = !entry.segB;
@@ -146,3 +169,5 @@ int32_t displayShowDigit(Display_t outputDisplay, int8_t digit)
 
     return DISPLAY_ERR_OK;
 }
+
+/***** PRIVATE FUNCTIONS *****************************************************/

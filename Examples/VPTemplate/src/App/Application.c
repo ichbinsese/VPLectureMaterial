@@ -1,17 +1,23 @@
-/**
- * @file SampleApplication.c
- * @author Andreas Schmidt (a.v.schmidt81@gmail.com)
- * @brief Implementation of small sample application based on
- * state machine table
+/******************************************************************************
+ * @file Application.h
  *
- * @version 0.1
- * @date 2023-02-24
+ * @author Andreas Schmidt (a.v.schmidt81@googlemail.com
+ * @date   08.02.2025
  *
- * @copyright Copyright (c) 2023
+ * @copyright Copyright (c) 2025
  *
- */
+ ******************************************************************************
+ *
+ * @brief Implementation file for main application (state machine)
+ *
+ *
+ *****************************************************************************/
 
+
+/***** INCLUDES **************************************************************/
 #include <string.h>
+
+#include "Application.h"
 #include "Util/Global.h"
 #include "Util/printf.h"
 
@@ -21,17 +27,24 @@
 
 #include "Util/StateTable/StateTable.h"
 
-#include "SampleApplication.h"
 
-/*
- * Private Functions
-*/
+/***** PRIVATE CONSTANTS *****************************************************/
 
+
+/***** PRIVATE MACROS ********************************************************/
+
+
+/***** PRIVATE TYPES *********************************************************/
+
+
+/***** PRIVATE PROTOTYPES ****************************************************/
 // State realte functions (on-Entry, on-State and on-Exit)
 static int32_t onEntryStartup(State_t* pState, int32_t eventID);
 static int32_t onStateRunning(State_t* pState, int32_t eventID);
 static int32_t onExitRunning(State_t* pState, int32_t eventID);
 static int32_t onEntryFailure(State_t* pState, int32_t eventID);
+
+/***** PRIVATE VARIABLES *****************************************************/
 
 /**
  * @brief List of State for the State Machine
@@ -68,6 +81,8 @@ static StateTableEntry_t gStateTableEntries[] =
 static StateTable_t gStateTable;
 
 
+/***** PUBLIC FUNCTIONS ******************************************************/
+
 int32_t sampleAppInitialize()
 {
     gStateTable.pStateList = gStateList;
@@ -89,6 +104,9 @@ int32_t sameplAppSendEvent(int32_t eventID)
     return result;
 }
 
+
+/***** PRIVATE FUNCTIONS *****************************************************/
+
 static int32_t onEntryStartup(State_t* pState, int32_t eventID)
 {
     return sameplAppSendEvent(EVT_ID_INIT_READY);
@@ -96,7 +114,6 @@ static int32_t onEntryStartup(State_t* pState, int32_t eventID)
 
 static int32_t onStateRunning(State_t* pState, int32_t eventID)
 {
-    ledToggleLED(LED1_DOOR_STATUS);
     return 0;
 }
 
@@ -107,6 +124,5 @@ static int32_t onExitRunning(State_t* pState, int32_t eventID)
 
 static int32_t onEntryFailure(State_t* pState, int32_t eventID)
 {
-    ledSetLED(LED3_MOTOR_STATUS, LED_ON);
     return 0;
 }

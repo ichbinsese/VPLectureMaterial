@@ -1,19 +1,35 @@
-/**
+/******************************************************************************
  * @file GlobalObjects.h
- * @author Andreas Schmidt (a.v.schmidt81@gmail.com)
- * @brief Header file for global objects used across different modules
  *
- * @version 0.1
- * @date 2023-03-03
+ * @author Andreas Schmidt (a.v.schmidt81@googlemail.com
+ * @date   08.02.2025
  *
- * @copyright Copyright (c) 2023
+ * @copyright Copyright (c) 2025
  *
- */
+ ******************************************************************************
+ *
+ * @brief Header file for global objects used across different modules (based on
+ * access functions)
+ *
+ *
+ *****************************************************************************/
 #ifndef _GLOBAL_OBJECT_H_
 #define _GLOBAL_OBJECT_H_
 
-#include "Util/Filter/Filter.h"
 
+/***** INCLUDES **************************************************************/
+
+
+/***** CONSTANTS *************************************************************/
+
+
+/***** MACROS ****************************************************************/
+
+
+/***** TYPES *****************************************************************/
+
+
+/***** PROTOTYPES ************************************************************/
 
 
 #endif

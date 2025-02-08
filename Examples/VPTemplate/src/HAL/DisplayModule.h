@@ -1,22 +1,27 @@
-/**
+/******************************************************************************
  * @file DisplayModule.h
- * @author Andreas Schmidt (a.v.schmidt81@gmail.com)
+ *
+ * @author Andreas Schmidt (a.v.schmidt81@googlemail.com
+ * @date   08.02.2025
+ *
+ * @copyright Copyright (c) 2025
+ *
+ ******************************************************************************
+ *
  * @brief Header File for the 7-Segment display module
  *
- * @version 0.1
- * @date 2023-02-22
  *
- * @copyright Copyright (c) 2023
- *
- */
+ *****************************************************************************/
 #ifndef _DISPLAY_MODULE_H_
 #define _DISPLAC_MODULE_H_
 
+/***** INCLUDES **************************************************************/
 #include <stdint.h>
 
-/*
- * Public Defines
-*/
+/***** CONSTANTS *************************************************************/
+
+
+/***** MACROS ****************************************************************/
 #define DISPLAY_ERR_OK                  0           //!< No error occured
 #define DISPLAY_ERR_INIT_FAILURE        -1          //!< Error during display initialization
 
@@ -26,15 +31,21 @@
 #define DIGIT_LOWER_O                   (18)        //!< Index in the encoding table for lower "o"
 #define DIGIT_OFF                       (19)        //!< Index in the encoding table all segments off
 
+
+/***** TYPES *****************************************************************/
+
 /**
  * @brief Enumeration for the selected display
  *
  */
 typedef enum _Display
 {
-    FLOOR_DISPLAY,                                  //!< Display to show the current floor
-    ERROR_DISPLAY                                   //!< Display to show the current error code
+    LEFT_DISPLAY,                                  //!< Left 7-Seg display
+    RIGHT_DISPLAY                                  //!< Right 7-Seg Display
 } Display_t;
+
+
+/***** PROTOTYPES ************************************************************/
 
 /**
  * @brief Initializes the Display Module

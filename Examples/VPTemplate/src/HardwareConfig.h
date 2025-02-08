@@ -1,17 +1,30 @@
-/**
+/******************************************************************************
  * @file HardwareConfig.h
- * @author Andreas Schmidt (a.v.schmidt81@gmail.com)
+ *
+ * @author Andreas Schmidt (a.v.schmidt81@googlemail.com
+ * @date   08.02.2025
+ *
+ * @copyright Copyright (c) 2025
+ *
+ ******************************************************************************
+ *
  * @brief Header file for hardware configuration
  *
- * @version 0.1
- * @date 2023-02-13
+ * @details Defines the Pin and Port mappings of the microcontroller for the
+ * use of the PiEye EduShield
  *
- * @copyright Copyright (c) 2023
  *
- */
+ *****************************************************************************/
 #ifndef _HARDWARE_CONFIGURATION_H_
 #define _HARDWARE_CONFIGURATION_H_
 
+/***** INCLUDES **************************************************************/
+#include "stm32g4xx_hal.h"
+
+/***** CONSTANTS *************************************************************/
+
+
+/***** MACROS ****************************************************************/
 /*
  * LED Pin Configuration
  */
@@ -76,6 +89,12 @@
 #define SW2_GPIO_PORT                           GPIOB
 #define B1_PIN                                  GPIO_PIN_13
 #define B1_GPIO_PORT                            GPIOC
+
+
+/***** TYPES *****************************************************************/
+
+
+/***** PROTOTYPES ************************************************************/
 
 
 #endif
